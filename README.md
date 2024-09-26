@@ -7,47 +7,52 @@
 // 针对筛选的订阅进行分组、规则等字段内容的覆盖以及对其rules、proxies、rule-providers进行prepend/append  
 // 请参考 https://github.com/Kiritocyz/Clash/  
 
-// Define main function (script entry)  
+以下是自定义规则的代码示例：
 
-// 自定义规则，针对需求，可以是多个 const 变量  
-const rules = [  
-    'PROCESS-NAME,ChatGPT,🔰 节点选择', // ChatGPT  
-    'DOMAIN-SUFFIX,chatgpt.com,🔰 节点选择', //网页ChatGPT  
-    'DOMAIN-SUFFIX,openai.com,🔰 节点选择', //openai  
-    'DOMAIN-SUFFIX,ai.google.dev,🔰 节点选择 ', //google ai  
-    'DOMAIN-SUFFIX,local, DIRECT', // 本地  
-    'MATCH,DIRECT', // 剩下的  
-];  
-  
-// 自定义规则2，  
-const rules2 = [  
-    // .. 其他规则  
-];  
+```javascript
+// Define main function (script entry)
 
-// 自定义规则3  
-const rules3 = [  
-    // .. 其他规则  
-];  
-  
-function main(config, profileName) {  
-    console.log("Profile Name: " + profileName);  
-  
-    //第一个匹配规则  
-    const pattern_1 = /^hk-.*/; //这里需要注意，表达式写在里面 /正则表达式/  
-    const pattern_2 = /.pattern2.*/; //这里需要注意，表达式写在里面 /正则表达式/  
-    if (profileName.match(pattern_1)) {  
-      // 以下按照需求排列组合使用  
-      // 前部附加规则  
-      config.rules.unshift(rules1);  
-      // 后部附加规则  
-      config.rules.push(rules2);  
-      // 覆盖配置  
-      config['rules'] = rules3  
-    }  
-    if (profileName.match(pattern_2)) {  
-      // 合并规则  
-      config['rules'] = rules  
-    }  
-  
-    return config;  
+// 自定义规则，针对需求，可以是多个 const 变量
+const rules = [
+    'PROCESS-NAME,ChatGPT,🔰 节点选择', // ChatGPT
+    'DOMAIN-SUFFIX,chatgpt.com,🔰 节点选择', // 网页ChatGPT
+    'DOMAIN-SUFFIX,openai.com,🔰 节点选择', // openai
+    'DOMAIN-SUFFIX,ai.google.dev,🔰 节点选择', // google ai
+    'DOMAIN-SUFFIX,local, DIRECT', // 本地
+    'MATCH,DIRECT', // 剩下的
+];
+
+// 自定义规则2
+const rules2 = [
+    // .. 其他规则
+];
+
+// 自定义规则3
+const rules3 = [
+    // .. 其他规则
+];
+
+function main(config, profileName) {
+    console.log("Profile Name: " + profileName);
+
+    // 第一个匹配规则
+    const pattern_1 = /^hk-.*/; // 这里需要注意，表达式写在里面 /正则表达式/
+    const pattern_2 = /.pattern2.*/; // 这里需要注意，表达式写在里面 /正则表达式/
+    
+    if (profileName.match(pattern_1)) {
+        // 以下按照需求排列组合使用
+        // 前部附加规则
+        config.rules.unshift(rules1);
+        // 后部附加规则
+        config.rules.push(rules2);
+        // 覆盖配置
+        config['rules'] = rules3;
+    }
+    
+    if (profileName.match(pattern_2)) {
+        // 合并规则
+        config['rules'] = rules;
+    }
+
+    return config;
 }  
