@@ -1,11 +1,11 @@
 # Clash-Verge-订阅/配置 自动切换
 
-// 脚本实现不同 订阅/配置 添加不同规则  
-// 使用：复制全部内容到verge的全局扩展脚本中，然后根据需求修改  
-// 此脚本模板适用于verge-rev的1.7.3以上版本，适用于多场景、多设备使用  
-// 示例脚本仅包含：针对使用订阅，进行规则字段内容的 覆盖 以及对其进行prepend/append  
-// 针对筛选的订阅进行分组、规则等字段内容的覆盖以及对其rules、proxies、rule-providers进行prepend/append  
-// 请参考 https://github.com/Kiritocyz/Clash/  
+脚本实现不同 订阅/配置 添加不同规则  
+使用：复制全部内容到verge的全局扩展脚本中，然后根据需求修改  
+此脚本模板适用于verge-rev的1.7.3以上版本，适用于多场景、多设备使用  
+示例脚本仅包含：针对使用订阅，进行规则字段内容的 覆盖 以及对其进行prepend/append  
+针对筛选的订阅进行分组、规则等字段内容的覆盖以及对其rules、proxies、rule-providers进行prepend/append  
+请参考 https://github.com/Kiritocyz/Clash/  
 
 以下是自定义规则的代码示例：
 
